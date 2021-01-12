@@ -1,0 +1,31 @@
+name: Python Customer Support - Tests
+
+on:
+  push:
+    branches:
+      - 'develop'
+      - 'release-*'
+
+jobs:
+
+  test:
+    name: Test - Unit & Integration
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+            fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@master
+        with:
+          python-version: 3.9
+      - name: Install Python dependencies
+        uses: py-actions/py-dependency-install@v2
+      - name: Test
+        run: python -m unittest discover tests
+      - name: SonarCloud Scan
+        if: success()
+        uses: SonarSource/sonarcloud-github-action@v1.2 # file: sonar-project.properties
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
