@@ -1,5 +1,3 @@
-
-
 # dict: len(my_dict), my_dict['name'] or my_dict.get("name"), .keys(), .values(), .clear(), .copy()
 my_dict = {"name": "John", "age": 36, "dni": 12345678}
 

@@ -28,6 +28,4 @@ my_range2 = range(0, 10, 2)  # 0,2,4,6,8
 my_set = {"apple", "banana", "cherry"}  # set, eliminating duplicate
 my_set_immutable = frozenset({"apple", "banana", "cherry"})  # set immutable
 
-
-
-
+bytes_var = b'byte'

@@ -57,5 +57,3 @@ def fun0():
 
 fun0()
 print('glb: ', glb)
-
-

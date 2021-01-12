@@ -24,7 +24,7 @@ class FruitEnum(str, Enum):
 class ValidationDto(BaseModel):
     id: constr(min_length=1, max_length=10)
     name: constr(min_length=4, strip_whitespace=True)
-    description:  constr(regex=r'^miw-(betca|spring|python)$')  # miw-betca, miw-spring or miw-python
+    description: constr(regex=r'^miw-(betca|spring|python)$')  # miw-betca, miw-spring or miw-python
     value: Optional[conint(multiple_of=5)]
     adult: StrictBool
     color: Color

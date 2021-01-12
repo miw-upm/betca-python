@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from rest.dtos import Dto, ValidationDto
+from rest.dtos import ValidationDto
 
 validation = APIRouter(
     prefix="/validation",
@@ -11,5 +11,3 @@ validation = APIRouter(
 @validation.post("/")
 def create(validation_dto: ValidationDto) -> ValidationDto:
     return validation_dto
-
-
