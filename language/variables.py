@@ -1,8 +1,8 @@
 import datetime
 
 # types: str, int, float, complex, bool, list, tuple, range, dict, set, frozenset, bytes, bytearray, memoryview
-str_var: str  # var is not defined, it is not possible to use until creating with =
-str_var = 'string'  # or "string", esc==\
+str_var: str  # STATIC var is not defined, it is not possible to use until creating with =
+str_var = 'string'  # DYNAMIC. str_var is created. It's possible  "string", esc==\
 var = 5  # var is created
 null_var = None  # None is null and var is created
 casting_var = str(var)  # casting: str(), float()...

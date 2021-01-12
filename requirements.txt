@@ -1,1 +1,5 @@
 setuptools~=49.2.1
+fastapi~=0.63.0
+pydantic~=1.7.3
+uvicorn~=0.13.3
+mongoengine~=0.22.1
