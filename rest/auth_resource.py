@@ -10,12 +10,13 @@ auth = APIRouter(
     tags=["auth"],
 )
 
-basic_security = HTTPBasic()
-
 
 @auth.get("/basic-beginning")
-def read_with_basic_beginning(credentials: HTTPBasicCredentials = Depends(basic_security)):
+def read_with_basic_beginning(credentials: HTTPBasicCredentials = Depends(HTTPBasic())):
     return {"username": credentials.username, "password": credentials.password}
+
+
+basic_security = HTTPBasic()
 
 
 def basic_authentication(credentials: HTTPBasicCredentials = Depends(basic_security)) -> str:
@@ -38,7 +39,7 @@ def read_with_basic(username: str = Depends(basic_authentication)):
 
 @auth.post("/bearer")
 def create_jwt_token(username: str = Depends(basic_authentication)):
-    expire = datetime.utcnow() + timedelta(minutes=15)
+    expire = datetime.utcnow() + timedelta(minutes=60)
     encoded_jwt = jwt.encode({'sub': username, 'exp': expire}, 'secret_key-Y01oEAl3iz', algorithm='HS256')
     return {"token": encoded_jwt}
 

@@ -13,7 +13,7 @@ def find(name: str) -> [Dto]:
     return [Dto(id='1', name=name, description='desc'), Dto(id='2', name=name, description='desc2', value=2)]
 
 
-@basic.post("/")
+@basic.post("")
 def create(dto: Dto) -> Dto:
     return dto
 

@@ -5,3 +5,4 @@ uvicorn~=0.13.3
 mongoengine~=0.22.1
 bcrypt~=3.2.0
 pyjwt~=2.0.0
+requests~=2.25.1

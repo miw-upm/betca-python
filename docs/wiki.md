@@ -38,6 +38,9 @@ plus a number of additional packages.
 	 > venv\Scripts\activate.bat
 	 > venv\Scripts\deactivate.bat
 
+### tests
+     > python -m unittest discover tests
+
 ### Distutils
 setuptools: is a collection of enhancements to the Python distutils that allow you to more easily build and distribute Python distributions, 
 especially ones that have dependencies on other packages.
