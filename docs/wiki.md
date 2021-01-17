@@ -44,3 +44,9 @@ plus a number of additional packages.
 ### Distutils
 setuptools: is a collection of enhancements to the Python distutils that allow you to more easily build and distribute Python distributions, 
 especially ones that have dependencies on other packages.
+
+
+### tests
+    > python -m unittest discover tests
+    > coverage run -m unittest discover tests
+    > coverage xml  # generate coverage.xml
