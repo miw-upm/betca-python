@@ -4,7 +4,7 @@ from rest.dtos import Dto
 
 basic = APIRouter(
     prefix="/basic",
-    tags=["basic"],
+    tags=["basic"],  # OpenAPI
 )
 
 
@@ -19,7 +19,7 @@ def create(dto: Dto) -> Dto:
 
 
 @basic.get("/{ide}")
-def read(ide: str):
+def read(ide: str) -> Dto:
     return Dto(id=ide, name="dto", description='desc')
 
 
@@ -32,4 +32,3 @@ def update(ide: str, dto: Dto) -> Dto:
 @basic.delete("/{ide}")
 def delete(ide: str):
     print('Dto(', ide, ') deleted')
-    return None

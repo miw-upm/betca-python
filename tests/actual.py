@@ -1,3 +1,4 @@
+
 def method(arg):
     print('>>> method... return:', arg)
     return arg

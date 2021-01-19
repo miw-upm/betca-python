@@ -1,4 +1,3 @@
-import unittest
 from http import HTTPStatus
 from unittest import TestCase
 
@@ -14,7 +13,9 @@ class TestService(TestCase):
     def test_read_basic(self):
         response = client.get("/basic/666")
         self.assertEqual(HTTPStatus.OK, response.status_code)
-        print(response.json())
+        self.assertEqual('666', response.json()['id'])
+        self.assertEqual({'id': '666', 'name': 'dto', 'description': 'desc', 'value': None}, response.json())
+        print('response: ', response.json())
 
     def test_create(self):
         response = client.post("/basic", json=Dto(id='1', name="dto", description='desc').dict())
@@ -22,7 +23,7 @@ class TestService(TestCase):
         print(response.json())
 
     def test_update(self):
-        response = client.put("/basic/666", json=Dto(id='1', name="dto", description='desc').dict())
+        response = client.put("/basic/666", json={'id': '666', 'name': 'dto', 'description': 'desc'})
         self.assertEqual(HTTPStatus.OK, response.status_code)
         print(response.json())
 
@@ -47,10 +48,9 @@ class TestService(TestCase):
     def test_create_token_and_get(self):
         response = client.post("/auth/bearer", auth=('jes', 'pass'))
         self.assertEqual(HTTPStatus.OK, response.status_code)
-        token = dict(response.json())['token']
+        token = response.json()['token']
         print(token)
-        bearer = "Bearer " + token
-        response = client.get("/auth/bearer", headers={"Authorization": bearer})
+        response = client.get("/auth/bearer", headers={"Authorization": "Bearer " + token})
         self.assertEqual(HTTPStatus.OK, response.status_code)
         print(response.json())
 

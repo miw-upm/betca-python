@@ -8,3 +8,4 @@ app = FastAPI(title='BETCA-Python')
 app.include_router(basic)
 app.include_router(validation)
 app.include_router(auth)
+

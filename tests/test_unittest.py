@@ -64,7 +64,3 @@ class TestAsserts(unittest.TestCase):
         self.assertLessEqual(2, 2)
         self.assertRegex("abbb", r"ab*")
         self.assertNotRegex("bbb", r"ab*")
-
-
-
-

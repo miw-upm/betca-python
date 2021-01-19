@@ -16,14 +16,12 @@ def read_with_basic_beginning(credentials: HTTPBasicCredentials = Depends(HTTPBa
     return {"username": credentials.username, "password": credentials.password}
 
 
-basic_security = HTTPBasic()
-
-
-def basic_authentication(credentials: HTTPBasicCredentials = Depends(basic_security)) -> str:
+def basic_authentication(credentials: HTTPBasicCredentials = Depends(HTTPBasic())) -> str:
     correct_username = secrets.compare_digest("jes", credentials.username)  # reduce the risk of timing attacks
-    print('token:', secrets.token_urlsafe(16))  # secrets.token_hex(16)
     bd_hashed_password = bcrypt.hashpw(b"pass", bcrypt.gensalt())
     correct_password = bcrypt.checkpw(credentials.password.encode('utf-8'), bd_hashed_password)
+    print('token:', secrets.token_urlsafe(16))  # secrets.token_hex(16)
+    print('pass:', bd_hashed_password)  # secrets.token_hex(16)
     if not (correct_username and correct_password):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
@@ -44,10 +42,7 @@ def create_jwt_token(username: str = Depends(basic_authentication)):
     return {"token": encoded_jwt}
 
 
-bearer_security = HTTPBearer()
-
-
-def bearer_authentication(credentials: HTTPAuthorizationCredentials = Depends(bearer_security)) -> str:
+def bearer_authentication(credentials: HTTPAuthorizationCredentials = Depends(HTTPBearer())) -> str:
     try:
         payload = jwt.decode(credentials.credentials, 'secret_key-Y01oEAl3iz', algorithms=["HS512", "HS256"])
         username: str = payload.get("sub")
