@@ -94,5 +94,5 @@ class Callable:
 
 
 my_callable = Callable()
-my_callable("!!!")  # class is callable
+my_callable("!!!")  # class is callable  my_callable.__call__(23)
 # my_class() ERROR!!!
