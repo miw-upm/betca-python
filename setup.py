@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="betca-python-beginning",
-    version="1.0.0",
+    version="1.1.0-SNAPSHOT",
     description="Beginning",
     author="Jesus Bernal",
     packages=find_packages(),
