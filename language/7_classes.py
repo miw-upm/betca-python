@@ -7,13 +7,13 @@ def dynamic_function():
 
 class MyClass:
     """A simple example class"""  # default: __doc__=...
-    i: int  # it is a instance attribute
+    i: int  # it is an instance attribute
     att = 'static'  # it is a static attribute
 
     def __init__(self, name):  # constructor: __init__
         print('Init MyClass:', name)
         self.i = len(name)
-        self.name = name  # 'other' is a instance attribute
+        self.name = name  # 'other' is an instance attribute
         self.dynamic = dynamic_function
 
     def public(self):  # public
