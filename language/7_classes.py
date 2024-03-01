@@ -27,6 +27,7 @@ print('0- type of class: ', type(MyClass))
 
 print('1 ---------------- ')
 my_class = MyClass('me')
+my_class.name = "..."
 my_class.dynamic()
 my_class.new_attribute = "New!!!"
 my_class.new_function = dynamic_function
@@ -94,5 +95,5 @@ class Callable:
 
 
 my_callable = Callable()
-my_callable("!!!")  # class is callable
+my_callable("!!!")  # class is callable my_callable.__call__("!!!")
 # my_class() ERROR!!!

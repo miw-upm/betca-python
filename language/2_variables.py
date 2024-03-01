@@ -21,9 +21,10 @@ print('3- ', large_str[5:])
 print('4- ', large_str[:])  # it is copy
 age = 36
 anniversary = date(1991, 10, 12)
-txt = f"My name is \"John\", and I am {age}, my anniversary is {anniversary:%A, %B %d, %Y}"  # \ is esc
-print('5- ', 'text {}'.format(age))
-print('6- ', f'text {age}')
+txt = f"My name is \"John\", and I am {age}, my anniversary is {anniversary:%A, %B %d, %Y}"  # \ is esc %A: day of week, %B: montnt...
+print('5-',txt)
+print('6- ', 'text {}'.format(age))
+print('7- ', f'text {age}')
 
 my_list = ["apple", "banana", "cherry"]  # list .append .extend .remove .pop .popleft .clear .reverse ...
 my_tuple = "apple", "banana", "cherry"  # tuple immutable
@@ -35,7 +36,7 @@ my_set_immutable = frozenset({"apple", "banana", "cherry"})  # set immutable
 
 bytes_var = b'byte'
 
-print('7- type of str_var: ', type(str_var))
-print('8- type of age: ', type(age))
-print('9- type of anniversary: ', type(anniversary))
-print('10- type of bytes_var: ', type(bytes_var))
+print('8- type of str_var: ', type(str_var))
+print('9- type of age: ', type(age))
+print('10- type of anniversary: ', type(anniversary))
+print('11- type of bytes_var: ', type(bytes_var))
